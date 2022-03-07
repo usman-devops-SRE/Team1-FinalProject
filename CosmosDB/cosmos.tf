@@ -16,7 +16,14 @@ resource "azurerm_cosmosdb_account" "db" {
   kind                = "MongoDB"
 
   enable_automatic_failover = true
-
+  enable_multiple_write_locations = true
+  public_network_access_enabled = false
+/*
+  virtual_network_rule {
+      id = ""
+      ignore_missing_vnet_service_endpoint = true
+  }
+*/
   capabilities {
     name = "EnableAggregationPipeline"
   }
