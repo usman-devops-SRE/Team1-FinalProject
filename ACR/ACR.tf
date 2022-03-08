@@ -3,8 +3,8 @@ resource "azurerm_resource_group" "ACR" {
   location = var.location
 }
 
-resource "azurerm_container_registry" "ARC1" {
-  name                = azurerm_container_registry.ARC1.name
+resource "azurerm_container_registry" "ACReast" {
+  name                = azurerm_container_registry.ACReast.name
   resource_group_name = azurerm_resource_group.ACR.name
   location            = azurerm_resource_group.ACR.location
   sku                 = "Premium"
