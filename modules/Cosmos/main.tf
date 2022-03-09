@@ -1,26 +1,25 @@
-/*
-resource "random_integer" "ri" {
-  min = 10000
-  max = 99999
+data "azurerm_subnet" "subnet3" {
+    name                       = "${var.subnet_name3}"
+    virtual_network_name       = "${var.vnet_name}"
+    resource_group_name        = "${var.rg_name}"
 }
-*/
+
 resource "azurerm_cosmosdb_account" "db" {
-  #name                = "cosmos_${random_integer.ri.result}"
   name                = "cosmos-db-team1-project3-1234"
   location            = "${var.location}"
-  resource_group_name = "${var.rg_name}"
+  resource_group_name = "${var.db_rg_name}"
   offer_type          = "Standard"
   kind                = "MongoDB"
 
   enable_automatic_failover = true
   enable_multiple_write_locations = true
   public_network_access_enabled = false
-/*
+
   virtual_network_rule {
-      id = "data."
+      id = data.azurerm_subnet.subnet3.id
       ignore_missing_vnet_service_endpoint = true
   }
-*/
+
   capabilities {
     name = "EnableAggregationPipeline"
   }
