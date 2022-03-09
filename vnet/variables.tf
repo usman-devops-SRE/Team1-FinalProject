@@ -1,4 +1,5 @@
 # Credentials/service principals for authentication
+/*
 variable "subscription_id" {
   type = string
 }
@@ -11,7 +12,7 @@ variable "client_id" {
 variable "client_secret" {
   type = string
 }
-
+*/
 
 ####################################################################
 # PRIMARY REGION Virtual Network, Subnets, and NSG related variables 
