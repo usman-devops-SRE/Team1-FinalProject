@@ -1,3 +1,4 @@
+
 resource "azurerm_resource_group" "rg" {
   name     = var.rg_name
   location = var.location
@@ -6,6 +7,7 @@ resource "azurerm_resource_group" "rg2" {
   name     = var.rg_name_2
   location = var.location_2
 }
+
 
 module "vnet1" {
   source            = "./modules/vnet_nsg_subnets"
