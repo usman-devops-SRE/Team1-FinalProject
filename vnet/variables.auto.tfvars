@@ -6,9 +6,9 @@
 # PRIMARY REGION Virtual Network, Subnets, and NSG related variables 
 
 
-
+/*
 rg_name                           = 
-location                          = /*
+location                          = 
 vnet_name                         = 
 #Virtual networks address space
 address_space                     = 
