@@ -1,11 +1,11 @@
 variable "location" {
-    default = "eastus"
+  default = "eastus"
 }
 
 variable "failover_location" {
-    default = "westeurope"
+  default = "westeurope"
 }
 
-variable "rg_name" {
-    default = "cosmos_db_rg"
+variable "db_rg_name" {
+  default = "cosmos_db_rg"
 }

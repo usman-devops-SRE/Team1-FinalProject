@@ -6,6 +6,6 @@ variable "failover_location" {
     default = "westeurope"
 }
 
-variable "rg_name" {
+variable "db_rg_name" {
     default = "cosmos_db_rg"
 }
