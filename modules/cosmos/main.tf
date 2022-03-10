@@ -6,7 +6,6 @@ resource "azurerm_cosmosdb_account" "db" {
   kind                = "MongoDB"
 
   enable_automatic_failover = true
-  enable_multiple_write_locations = false
   public_network_access_enabled = false
   is_virtual_network_filter_enabled = true
 
