@@ -1,4 +1,4 @@
-
+# Added comment to test
 resource "azurerm_resource_group" "rg" {
   name     = var.rg_name
   location = var.location
@@ -62,5 +62,5 @@ module "vnet_peering" {
   remote_vnet_id  = module.vnet2.vnet_id
   vnet_name2      = module.vnet2.vnet_name
   remote_vnet_id2 = module.vnet1.vnet_id
-
+ 
 }
