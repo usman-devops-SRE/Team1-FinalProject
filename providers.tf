@@ -7,6 +7,12 @@ terraform {
       version = "=2.98.0"
     }
   }
+    backend "azurerm" {
+      resource_group_name  = "Test-RG-Team1"
+      storage_account_name = "terraformstorage02"
+      container_name       = "terraformstorage"
+      key                  = "terraform"
+    }
 }
 
 # Configure the Microsoft Azure Provider
