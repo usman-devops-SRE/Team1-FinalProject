@@ -8,6 +8,7 @@ resource "azurerm_cosmosdb_account" "db" {
   enable_automatic_failover = true
   public_network_access_enabled = false
   is_virtual_network_filter_enabled = true
+  mongo_server_version = 4.0
 
   virtual_network_rule {
       id = "${var.subnet3_id}"
