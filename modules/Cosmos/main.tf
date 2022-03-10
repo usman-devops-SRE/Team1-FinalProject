@@ -1,12 +1,13 @@
+/*
 data "azurerm_subnet" "subnet3" {
     name                       = "${var.subnet_name3}"
     virtual_network_name       = "${var.vnet_name}"
     resource_group_name        = "${var.rg_name}"
 }
-
+*/
 resource "azurerm_cosmosdb_account" "db" {
   name                = "cosmos-db-team1-project3-1234"
-  location            = "${var.location}"
+  location            = "${var.db_location}"
   resource_group_name = "${var.db_rg_name}"
   offer_type          = "Standard"
   kind                = "MongoDB"
@@ -14,9 +15,11 @@ resource "azurerm_cosmosdb_account" "db" {
   enable_automatic_failover = true
   enable_multiple_write_locations = true
   public_network_access_enabled = false
+  is_virtual_network_filter_enabled = true
 
   virtual_network_rule {
-      id = data.azurerm_subnet.subnet3.id
+      id = "${var.subnet3_id}"
+      #data.azurerm_subnet.subnet3.id
       ignore_missing_vnet_service_endpoint = true
   }
 
@@ -43,12 +46,12 @@ resource "azurerm_cosmosdb_account" "db" {
   }
 
   geo_location {
-    location          = "${var.failover_location}"
+    location          = "${var.db_failover_location}"
     failover_priority = 1
   }
 
   geo_location {
-    location          = "${var.location}"
+    location          = "${var.db_location}"
     failover_priority = 0
   }
 }

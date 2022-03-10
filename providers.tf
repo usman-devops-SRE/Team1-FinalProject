@@ -4,9 +4,15 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=2.91.0"
+      version = "=2.98.0"
     }
   }
+    backend "azurerm" {
+      resource_group_name  = "TerraformStorageTeam1-rg"
+      storage_account_name = "terraformstorage001"
+      container_name       = "terraformstorage"
+      key                  = "terraform.tfstate"
+    }
 }
 
 # Configure the Microsoft Azure Provider
