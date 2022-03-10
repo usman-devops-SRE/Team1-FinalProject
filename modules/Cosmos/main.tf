@@ -15,6 +15,7 @@ resource "azurerm_cosmosdb_account" "db" {
   enable_automatic_failover = true
   enable_multiple_write_locations = true
   public_network_access_enabled = false
+  is_virtual_network_filter_enabled = true
 
   virtual_network_rule {
       id = "${var.subnet3_id}"
