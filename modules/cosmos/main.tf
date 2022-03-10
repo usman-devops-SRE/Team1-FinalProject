@@ -1,12 +1,5 @@
-/*
-data "azurerm_subnet" "subnet3" {
-    name                       = "${var.subnet_name3}"
-    virtual_network_name       = "${var.vnet_name}"
-    resource_group_name        = "${var.rg_name}"
-}
-*/
 resource "azurerm_cosmosdb_account" "db" {
-  name                = "cosmos-db-team1-project3-1234"
+  name                = "${var.db_account_name}"
   location            = "${var.db_location}"
   resource_group_name = "${var.db_rg_name}"
   offer_type          = "Standard"
@@ -19,7 +12,6 @@ resource "azurerm_cosmosdb_account" "db" {
 
   virtual_network_rule {
       id = "${var.subnet3_id}"
-      #data.azurerm_subnet.subnet3.id
       ignore_missing_vnet_service_endpoint = true
   }
 
@@ -40,9 +32,7 @@ resource "azurerm_cosmosdb_account" "db" {
   }
 
   consistency_policy {
-    consistency_level       = "BoundedStaleness"
-    max_interval_in_seconds = 300
-    max_staleness_prefix    = 100000
+    consistency_level       = "Strong"
   }
 
   geo_location {
@@ -56,17 +46,17 @@ resource "azurerm_cosmosdb_account" "db" {
   }
 }
 
-resource "azurerm_cosmosdb_mongo_database" "example" {
+resource "azurerm_cosmosdb_mongo_database" "mongo_db" {
   name                = "cosmos-mongo-db"
   resource_group_name = azurerm_cosmosdb_account.db.resource_group_name
   account_name        = azurerm_cosmosdb_account.db.name
 }
 
-resource "azurerm_cosmosdb_mongo_collection" "example" {
+resource "azurerm_cosmosdb_mongo_collection" "mongo_collection" {
   name                = "cosmos-mongo-db-collection"
   resource_group_name = azurerm_cosmosdb_account.db.resource_group_name
   account_name        = azurerm_cosmosdb_account.db.name
-  database_name       = azurerm_cosmosdb_mongo_database.example.name
+  database_name       = azurerm_cosmosdb_mongo_database.mongo_db.name
 
   default_ttl_seconds = "777"
   shard_key           = "uniqueKey"
