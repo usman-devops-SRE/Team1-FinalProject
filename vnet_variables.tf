@@ -183,3 +183,7 @@ variable "nic_id_2"{
 variable "nic_id_3"{
     type=string
 }*/
+
+
+#################################### BASTION VM VARIABLES
+#######################
