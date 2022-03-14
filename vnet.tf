@@ -76,11 +76,11 @@ module "bastion_host"{
   rg_name = azurerm_resource_group.rg.name
   vnet_name = module.vnet1.vnet_name
   bastion_address = ["10.110.0.0/24"]
-  comp_name            = "bastion_vm" #var.vm_name
+  comp_name            = "bastion-vm" #var.vm_name
   admin_username       = "azureuser"#var.admin_username
   admin_password       = "Pa55w.rd1234" #var.admin_password
   vm_size              = "Standard_B1s"#var.vm_size
-  vm_name              = "bastion_vm1" #var.vm_name
+  vm_name              = "bastion-vm1" #var.vm_name
   use_ssh_keys               = false #var.use_ssh
 }
 
