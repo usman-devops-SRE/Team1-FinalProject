@@ -1,5 +1,5 @@
 variable "bastion_address"{
-    type = string
+    type = list(string)
 }
 variable "vnet_name"{
     type = string
