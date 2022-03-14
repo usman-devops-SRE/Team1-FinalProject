@@ -79,7 +79,7 @@ module "bastion_host"{
   comp_name            = "bastion-vm" #var.vm_name
   admin_username       = "azureuser"#var.admin_username
   admin_password       = "Pa55w.rd1234" #var.admin_password
-  vm_size              = "Standard_B1s"#var.vm_size
+  vm_size              = "Standard_B2s"#var.vm_size
   vm_name              = "bastion-vm1" #var.vm_name
   use_ssh_keys               = false #var.use_ssh
   subnet_id            = module.vnet1.subnet1_id
