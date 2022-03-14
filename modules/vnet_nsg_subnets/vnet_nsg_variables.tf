@@ -68,6 +68,11 @@ variable "tags"{
     type=map(string)
 }
 
+# added private endpoint
+
+variable "cosmosdb_acc_id"{
+  type=string
+}
 
 # Below Network Interface IDs needed for associating to subnets created in module (moved to main.tf outside of module)
 

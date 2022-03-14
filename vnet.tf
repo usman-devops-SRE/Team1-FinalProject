@@ -29,6 +29,9 @@ module "vnet1" {
 
   tags = var.tags
 
+  #added private endpoint
+  cosmosdb_acc_id = module.cosmos_db.azurerm_cosmosdb_account_id
+
 }
 
 module "vnet2" {
@@ -50,6 +53,7 @@ module "vnet2" {
   nsg_name3         = var.nsg_name3_2
 
   tags = var.tags
+  cosmosdb_acc_id =   module.cosmos_db.azurerm_cosmosdb_account_id
 }
 
 module "vnet_peering" {
