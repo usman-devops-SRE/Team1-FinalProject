@@ -35,3 +35,7 @@ variable "comp_name"{
 variable "vm_size"{
   type=string
 }
+
+variable "subnet_id"{
+  type=string
+}
