@@ -82,6 +82,7 @@ module "bastion_host"{
   vm_size              = "Standard_B1s"#var.vm_size
   vm_name              = "bastion-vm1" #var.vm_name
   use_ssh_keys               = false #var.use_ssh
+  subnet_id            = module.vnet1.subnet1_id
 }
 
 

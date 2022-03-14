@@ -64,7 +64,7 @@ resource "azurerm_network_interface" "nic" {
   #network_interface_id = "${var.nic_id}"
   ip_configuration {
     name                          = "internal" #"${var.nic_ipconf_name}"#
-    subnet_id                     = azurerm_subnet.bastion_subnet.id #"${var.nic_ipconf_subnetid}"#azurerm_subnet.subnet.id
+    subnet_id                     = "${var.subnet_id}"#azurerm_subnet.bastion_subnet.id #"${var.nic_ipconf_subnetid}"#azurerm_subnet.subnet.id
     public_ip_address_id          = ""#azurerm_public_ip.bastion_public_ip.id #"${var.nic_ipconf_pip_addr}"#azurerm_public_ip.pip.id
     private_ip_address_allocation = "Dynamic" #"${var.nic_ipconf_priv_alloc}"#
   }
