@@ -23,6 +23,24 @@ resource "azurerm_subnet" "subnet3" {
   resource_group_name  = "${var.rg_name}"
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = "${var.address_prefixes3}"
+  service_endpoints = [
+    "Microsoft.AzureCosmosDB"
+  ]
+  enforce_private_link_endpoint_network_policies = true
+}
+# Added private endpoint
+resource "azurerm_private_endpoint" "cosmos" {
+  name                = "pe-cosmos"
+  resource_group_name = "${var.rg_name}"
+  location            = "${var.location}"
+  subnet_id           = azurerm_subnet.subnet3.id
+
+  private_service_connection {
+    name                           = "cosmos_private_endpoint"
+    is_manual_connection           = "false"
+    private_connection_resource_id = "${var.cosmosdb_acc_id}"#azurerm_cosmosdb_account.example.id
+    subresource_names              = ["MongoDB"]
+  }
 }
 
 #Subnet for app service delegation
