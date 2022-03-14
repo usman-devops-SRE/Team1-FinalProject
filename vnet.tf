@@ -68,3 +68,12 @@ module "vnet_peering" {
   remote_vnet_id2 = module.vnet1.vnet_id
  
 }
+
+
+module "bastion_host"{
+  source = "./modules/bastion_vm"
+  location = azurerm_resource_group.rg.location
+  rg_name = azurerm_resource_group.rg.name
+  vnet_name = module.vnet1.vnet_name
+  bastion_address = "10.110.0.0/24"
+}
