@@ -13,3 +13,7 @@ variable "db_rg_name" {
 variable "subnet3_id" {
     default = ""
 }
+
+variable "db_account_name" {
+    default = "cosmos-db-team1-project3-1234"
+}
