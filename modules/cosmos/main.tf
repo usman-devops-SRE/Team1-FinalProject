@@ -67,3 +67,7 @@ resource "azurerm_cosmosdb_mongo_collection" "mongo_collection" {
     unique = true
   }
 }
+
+output "azurerm_cosmosdb_account_id" {
+  value = azurerm_cosmosdb_account.db.id
+}
