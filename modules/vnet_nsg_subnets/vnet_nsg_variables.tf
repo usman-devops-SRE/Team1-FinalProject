@@ -5,7 +5,7 @@ variable "rg_name" {
 }
 variable "location" {
   type = string
-  default = "East US 2"
+  default = "East US"
 }
 variable "vnet_name" {
   type = string
