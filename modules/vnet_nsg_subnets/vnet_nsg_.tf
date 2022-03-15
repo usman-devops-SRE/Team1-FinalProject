@@ -48,22 +48,22 @@ resource "azurerm_private_endpoint" "cosmos" {
     subresource_names              = ["MongoDB"]
   }
 }
-
+ /* #commented out service delegation since we dont need app service plan
 #Subnet for app service delegation
 resource "azurerm_subnet" "subnet4" {
   name                 = "${var.subnet_name4}"
   resource_group_name  = "${var.rg_name}"
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = "${var.address_prefixes4}"
-  /* #commented out service delegation since we dont need app service plan
+ 
   delegation {
     name = "app-service-delegation"
     service_delegation {
       name    = "Microsoft.Web/serverFarms"
       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
     }
-  }*/
-}
+  }
+}*/
 
 #Create Network Security Groups for each subnet
 resource "azurerm_network_security_group" "nsg1" {

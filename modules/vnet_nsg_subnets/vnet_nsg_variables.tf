@@ -43,10 +43,11 @@ variable "subnet_name3" {
   type = string
   default = "Tier3-subnet"
 }
+/*
 variable "subnet_name4"{
   type=string
   default = "app-service-delegation-subnet"
-}
+}*/
 # Subnet addresses of tiers 1,2,3, and app service delegation subnet
 variable "address_prefixes1" {
   type = list(string)
@@ -60,10 +61,11 @@ variable "address_prefixes3" {
   type = list(string)
   default = ["10.110.3.0/24"]
 }
+/*
 variable "address_prefixes4"{
   type=list(string)
   default = ["10.110.4.0/24"]
-}
+}*/
 variable "tags"{
     type=map(string)
 }

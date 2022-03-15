@@ -60,10 +60,11 @@ variable "subnet_name3" {
   type    = string
   default = "Tier3-subnet"
 }
+/*
 variable "subnet_name4" {
   type    = string
   default = "app-service-delegation-subnet"
-}
+}*/
 # Subnet addresses of tiers 1,2,3, and app service delegation subnet
 variable "address_prefixes1" {
   type    = list(string)
@@ -134,11 +135,11 @@ variable "subnet_name2_2" {
 variable "subnet_name3_2" {
   type    = string
   default = "Tier3-subnet"
-}
+}/*
 variable "subnet_name4_2" {
   type    = string
   default = "app-service-delegation-subnet"
-}
+}*/
 # Subnet addresses of tiers 1,2,3, and app service delegation subnet
 variable "address_prefixes1_2" {
   type    = list(string)
