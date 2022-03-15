@@ -25,3 +25,4 @@ variable "node_pool_name" {
 variable "vm_size" {
   type = string
 }
+
