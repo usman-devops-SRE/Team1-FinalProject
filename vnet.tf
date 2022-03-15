@@ -26,6 +26,8 @@ module "vnet1" {
   nsg_name1         = var.nsg_name1
   nsg_name2         = var.nsg_name2
   nsg_name3         = var.nsg_name3
+  address_prefixes0 = var.address_prefixes0
+  subnet_name0      = var.subnet_name0
 
   tags = var.tags
 
@@ -51,6 +53,8 @@ module "vnet2" {
   nsg_name1         = var.nsg_name1_2
   nsg_name2         = var.nsg_name2_2
   nsg_name3         = var.nsg_name3_2
+  address_prefixes0 = var.address_prefixes0_2
+  subnet_name0      = var.subnet_name0_2
 
   tags = var.tags
   cosmosdb_acc_id =   module.cosmos_db.azurerm_cosmosdb_account_id
@@ -75,14 +79,14 @@ module "bastion_host"{
   location = azurerm_resource_group.rg.location
   rg_name = azurerm_resource_group.rg.name
   vnet_name = module.vnet1.vnet_name
-  bastion_address = ["10.110.0.0/24"]
+  bastion_address = module.vnet1.subnet4-id#["10.110.4.0/24"]
   comp_name            = "bastion-vm" #var.vm_name
   admin_username       = "azureuser"#var.admin_username
   admin_password       = "Pa55w.rd1234" #var.admin_password
   vm_size              = "Standard_B2s"#var.vm_size
   vm_name              = "bastion-vm1" #var.vm_name
   use_ssh_keys               = false #var.use_ssh
-  subnet_id            = module.vnet1.subnet1_id
+  subnet_id            = module.vnet1.subnet0_id
 }
 
 

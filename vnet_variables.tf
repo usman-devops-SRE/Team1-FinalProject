@@ -187,3 +187,21 @@ variable "nic_id_3"{
 
 #################################### BASTION VM VARIABLES
 #######################
+
+
+variable "address_prefixes0"{
+  type = list(string)
+  default = ["10.110.0.0/24"]
+}
+variable "address_prefixes0_2"{
+  type = list(string)
+  default = ["10.111.0.0/24"]
+}
+variable "subnet_name0"{
+  type=string
+  default = "bastion_vm_subnet"
+}
+variable "subnet_name0_2"{
+  type = string
+  default = "bastion_vm_subnet"
+}

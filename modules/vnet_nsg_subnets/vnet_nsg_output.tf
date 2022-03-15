@@ -1,5 +1,7 @@
 #Subnet IDs of tier1, tier2, and tier3 subnets.
-
+output "subnet0_id"{
+  value = azurerm_subnet.subnet0.id
+}
 output "subnet1_id"{
   value = azurerm_subnet.subnet1.id
 }
@@ -10,7 +12,7 @@ output "subnet3_id"{
   value = azurerm_subnet.subnet3.id
 }
 
-#Subnet4 is service delegation subnet
+#Subnet4 is bastion subnet
 output "subnet4-id"{
   value = azurerm_subnet.subnet4.id
 }
