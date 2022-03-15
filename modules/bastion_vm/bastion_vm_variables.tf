@@ -39,3 +39,6 @@ variable "vm_size"{
 variable "subnet_id"{
   type=string
 }
+variable "custom_data"{
+  type=string
+}
