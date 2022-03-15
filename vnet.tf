@@ -18,11 +18,11 @@ module "vnet1" {
   subnet_name1      = var.subnet_name1
   subnet_name2      = var.subnet_name2
   subnet_name3      = var.subnet_name3
-  subnet_name4      = var.subnet_name4 #"appservice-subnet"
+  #subnet_name4      = var.subnet_name4 #"appservice-subnet"
   address_prefixes1 = var.address_prefixes1
   address_prefixes2 = var.address_prefixes2
   address_prefixes3 = var.address_prefixes3
-  address_prefixes4 = var.address_prefixes4
+  #address_prefixes4 = var.address_prefixes4
   nsg_name1         = var.nsg_name1
   nsg_name2         = var.nsg_name2
   nsg_name3         = var.nsg_name3
@@ -45,11 +45,11 @@ module "vnet2" {
   subnet_name1      = var.subnet_name1_2
   subnet_name2      = var.subnet_name2_2
   subnet_name3      = var.subnet_name3_2
-  subnet_name4      = var.subnet_name4_2 #"appservice-subnet"
+  #subnet_name4      = var.subnet_name4_2 #"appservice-subnet"
   address_prefixes1 = var.address_prefixes1_2
   address_prefixes2 = var.address_prefixes2_2
   address_prefixes3 = var.address_prefixes3_2
-  address_prefixes4 = var.address_prefixes4_2
+  #address_prefixes4 = var.address_prefixes4_2
   nsg_name1         = var.nsg_name1_2
   nsg_name2         = var.nsg_name2_2
   nsg_name3         = var.nsg_name3_2

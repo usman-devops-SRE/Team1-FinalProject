@@ -13,9 +13,10 @@ output "subnet3_id"{
 }
 
 #Subnet4 is bastion subnet
+/*
 output "subnet4-id"{
   value = azurerm_subnet.subnet4.id
-}
+}*/
 
 
 
