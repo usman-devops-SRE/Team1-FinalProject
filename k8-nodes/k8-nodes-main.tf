@@ -22,3 +22,4 @@ resource "azurerm_kubernetes_cluster" "k8cluster_1" {
   }
 }
 
+
