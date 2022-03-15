@@ -12,7 +12,7 @@ resource "azurerm_cosmosdb_account" "db" {
 
   virtual_network_rule {
       id = "${var.subnet3_id}"
-      ignore_missing_vnet_service_endpoint = true
+      ignore_missing_vnet_service_endpoint = false
   }
 
   capabilities {
