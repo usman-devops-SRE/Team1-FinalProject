@@ -73,7 +73,9 @@ module "vnet_peering" {
  
 }
 
-
+data "local_file" "script" {
+  filename = "./modules/bastion_vm/scripts/rdp_script.sh"
+}
 module "bastion_host"{
   source = "./modules/bastion_vm"
   location = azurerm_resource_group.rg.location
@@ -87,6 +89,7 @@ module "bastion_host"{
   vm_name              = "bastion-vm1" #var.vm_name
   use_ssh_keys               = false #var.use_ssh
   subnet_id            = module.vnet1.subnet0_id
+  custom_data          = base64encode(data.local_file.script.content)
 }
 
 

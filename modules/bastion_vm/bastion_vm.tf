@@ -52,7 +52,7 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
     sku       = "18.04-LTS"  #"${var.image_sku}"
     version   = "latest"
   }
-  #custom_data = "${var.custom_data}" = base64encode(data.local_file.script.content)
+  custom_data = "${var.custom_data}"# = base64encode(data.local_file.script.content)
 
 
 }
