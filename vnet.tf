@@ -79,7 +79,7 @@ module "bastion_host"{
   location = azurerm_resource_group.rg.location
   rg_name = azurerm_resource_group.rg.name
   vnet_name = module.vnet1.vnet_name
-  bastion_address = module.vnet1.subnet4-id#["10.110.4.0/24"]
+  bastion_address = var.address_prefixes4#["10.110.4.0/24"]
   comp_name            = "bastion-vm" #var.vm_name
   admin_username       = "azureuser"#var.admin_username
   admin_password       = "Pa55w.rd1234" #var.admin_password
