@@ -33,7 +33,7 @@ module "vnet1" {
 
   #added private endpoint
   cosmosdb_acc_id = module.cosmos_db.azurerm_cosmosdb_account_id
-
+#nothing
 }
 
 module "vnet2" {
