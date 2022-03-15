@@ -24,7 +24,7 @@ resource "azurerm_bastion_host" "bastion" {
     public_ip_address_id = azurerm_public_ip.bastion_public_ip.id
   }
 }
-
+ 
 resource "azurerm_linux_virtual_machine" "linux_vm" {
   name                            = "${var.vm_name}"
   computer_name                   = "${var.comp_name}"
