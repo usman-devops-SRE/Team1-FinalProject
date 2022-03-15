@@ -6,6 +6,12 @@ resource "azurerm_virtual_network" "vnet" {
   address_space       = "${var.address_space}"
 }
 # Create subnets for all tiers
+resource "azurerm_subnet" "subnet0" {
+  name                 = "${var.subnet_name0}"
+  resource_group_name  = "${var.rg_name}"
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = "${var.address_prefixes0}"
+}
 resource "azurerm_subnet" "subnet1" {
   name                 = "${var.subnet_name1}"
   resource_group_name  = "${var.rg_name}"
@@ -49,14 +55,14 @@ resource "azurerm_subnet" "subnet4" {
   resource_group_name  = "${var.rg_name}"
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = "${var.address_prefixes4}"
-  
+  /* #commented out service delegation since we dont need app service plan
   delegation {
     name = "app-service-delegation"
     service_delegation {
       name    = "Microsoft.Web/serverFarms"
       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
     }
-  }
+  }*/
 }
 
 #Create Network Security Groups for each subnet

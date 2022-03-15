@@ -87,3 +87,11 @@ variable "nic_id_3"{
     type=string
 }
 */
+
+
+variable "address_prefixes0"{
+  type=list(string)
+}
+variable "subnet_name0"{
+  type=string
+}
