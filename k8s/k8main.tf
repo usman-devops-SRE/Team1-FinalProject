@@ -17,14 +17,14 @@ resource "azurerm_kubernetes_cluster" "k8cluster_1" {
   location            = var.eastus
   resource_group_name = azurerm_resource_group.k8s_rg1.name
   node_resource_group = var.nodes_rg
-  dns_prefix = "team1project3"
-  
-  
+  dns_prefix          = "team1project3"
+
+
 
   default_node_pool {
-    name       = var.node_pool_name
-    node_count = var.node_count
-    vm_size    = var.vm_size
+    name           = var.node_pool_name
+    node_count     = var.node_count
+    vm_size        = var.vm_size
     vnet_subnet_id = data.azurerm_subnet.subnet-2.id
   }
 
