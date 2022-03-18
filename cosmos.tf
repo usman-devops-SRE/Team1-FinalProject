@@ -10,4 +10,3 @@ module "cosmos_db" {
   db_failover_location  = "westeurope"
   subnet3_id            = module.vnet1.subnet3_id
 }
-#
