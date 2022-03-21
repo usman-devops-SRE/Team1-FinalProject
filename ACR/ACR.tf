@@ -1,14 +1,15 @@
-resource "azurerm_resource_group" "ACR" {
-  name     = var.ACR
-  location = var.location
+####### Resource Group for The Azure Registar conatiner & Azure Container Instance
+resource "azurerm_resource_group" "ACI" {
+  name     = var.ACIrg
+  location = var.location 
 }
-
-resource "azurerm_container_registry" "ACReast" {
-  name                = azurerm_container_registry.ACReast.name
-  resource_group_name = azurerm_resource_group.ACR.name
-  location            = azurerm_resource_group.ACR.location
+########### Azure Container Registery 
+resource "azurerm_container_registry" "T1RC" {
+  name                = var.Team1CR
+  resource_group_name = var.ACIrg
+  location            = var.location
   sku                 = "Premium"
-  admin_enabled       = false
+  admin_enabled       = true
   georeplications {
     location                = "eastus"
     zone_redundancy_enabled = true
@@ -18,5 +19,28 @@ resource "azurerm_container_registry" "ACReast" {
     location                = "westeurope"
     zone_redundancy_enabled = true
     tags                    = {}
+  }
+}
+####### Container Registry Scope Map to pull from Repo
+resource "azurerm_container_registry_scope_map" "team1map" {
+  name                    = "Docker_pull"
+  container_registry_name = azurerm_container_registry.T1RC.name
+  resource_group_name     = azurerm_resource_group.ACI.name
+  actions = [
+    "repositories/repo1/content/read",
+    "repositories/repo1/content/write"
+  ]
+}
+resource "azurerm_container_registry_task" "JLT1" {
+  name                  = "team1task"
+  container_registry_id = azurerm_container_registry.T1RC.id
+  platform {
+    os = "Linux"
+  }
+  docker_step {
+    dockerfile_path      = "Dockerfile"
+    context_path         = "https://github.com/tylerkain/Team1-FinalProject/tree/finaldocker"
+    context_access_token = "<github personal access token>"
+    image_names          = ["bradmcken/team_1_final_project:latest", "bradmcken/team_1_final_project:apilatest", "bradmcken/team_1_final_project:dblatest"]
   }
 }

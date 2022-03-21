@@ -1,3 +1,2 @@
-resource_group = "ACR"
 location = "eastus"
-region1_ARC = "ARCeast"
+ACIrg = "resource_group_name"
