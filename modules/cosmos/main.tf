@@ -5,6 +5,7 @@ resource "azurerm_cosmosdb_account" "db" {
   offer_type          = "Standard"
   kind                = "MongoDB"
 
+  enable_free_tier = true
   enable_automatic_failover = true
   public_network_access_enabled = false
   is_virtual_network_filter_enabled = true
