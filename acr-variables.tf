@@ -15,9 +15,5 @@ variable "location-Acr" {
   default = "East Us"
 }
 
-variable "token" {
-  type= string
-default = "${secrets.ACCESS_TOKEN}"
-}
 
 
