@@ -9,7 +9,7 @@ variable "resource_group_name" {
   default = "acr-team-3rg"
 }
 
-variable "location" {
+variable "location-Acr" {
   type        = string
   description = "Azure Resource Region Location"
   default = "East Us"
