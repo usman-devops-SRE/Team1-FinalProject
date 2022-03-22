@@ -45,3 +45,8 @@ variable "location2" {
   type = string
   description = "Second rg location"
 }
+##### Key Vault
+variable "Team1vault" {
+  type = string
+  description = "key vault name"
+}
