@@ -16,5 +16,6 @@ variable "location-Acr" {
 }
 
 variable "secrets" {
+  type= "string"
   default = "${secrets.ACCESS_TOKEN}"
 }
