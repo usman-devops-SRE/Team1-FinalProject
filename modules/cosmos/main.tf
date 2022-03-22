@@ -10,12 +10,12 @@ resource "azurerm_cosmosdb_account" "db" {
   public_network_access_enabled = true
   is_virtual_network_filter_enabled = false
   mongo_server_version = "4.0"
-
+/*
   virtual_network_rule {
       id = "${var.subnet3_id}"
       ignore_missing_vnet_service_endpoint = false
   }
-/*
+
   capabilities {
     name = "EnableAggregationPipeline"
   }
