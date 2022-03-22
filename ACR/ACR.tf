@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "ACI" {
 }
 ########### Azure Container Registery 
 resource "azurerm_container_registry" "T1RC" {
-  name                = var.Team1CR
+  name                = var.Team1P3ACR
   resource_group_name = var.ACIrg
   location            = var.location
   sku                 = "Premium"
