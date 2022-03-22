@@ -23,7 +23,7 @@ resource "azurerm_container_registry" "T1RC" {
 }
 ####### Container Registry Scope Map to pull from Repo
 resource "azurerm_container_registry_scope_map" "team1map" {
-  name                    = "Docker_pull"
+  name                    = "Docker pull"
   container_registry_name = azurerm_container_registry.T1RC.name
   resource_group_name     = azurerm_resource_group.ACI.name
   actions = [
