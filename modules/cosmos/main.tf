@@ -7,15 +7,15 @@ resource "azurerm_cosmosdb_account" "db" {
 
   enable_free_tier = true
   enable_automatic_failover = true
-  public_network_access_enabled = false
-  is_virtual_network_filter_enabled = true
+  #public_network_access_enabled = false
+  #is_virtual_network_filter_enabled = true
   mongo_server_version = "4.0"
 
   virtual_network_rule {
       id = "${var.subnet3_id}"
       ignore_missing_vnet_service_endpoint = false
   }
-
+/*
   capabilities {
     name = "EnableAggregationPipeline"
   }
@@ -23,11 +23,11 @@ resource "azurerm_cosmosdb_account" "db" {
   capabilities {
     name = "mongoEnableDocLevelTTL"
   }
-
+  
   capabilities {
     name = "MongoDBv3.4"
   }
-
+*/
   capabilities {
     name = "EnableMongo"
   }
