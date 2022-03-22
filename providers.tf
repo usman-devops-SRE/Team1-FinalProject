@@ -12,7 +12,7 @@ terraform {
       storage_account_name = "terraformstorage001"
       container_name       = "terraformstorage"
       key                  = "terraform.tfstate"
-      sas_token = "${secrets.SAS_TOKEN}"
+    
     }
 }
 
