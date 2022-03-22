@@ -7,8 +7,8 @@ resource "azurerm_cosmosdb_account" "db" {
 
   enable_free_tier = true
   enable_automatic_failover = true
-  #public_network_access_enabled = false
-  #is_virtual_network_filter_enabled = true
+  public_network_access_enabled = true
+  is_virtual_network_filter_enabled = false
   mongo_server_version = "4.0"
 
   virtual_network_rule {
@@ -30,6 +30,10 @@ resource "azurerm_cosmosdb_account" "db" {
 */
   capabilities {
     name = "EnableMongo"
+  }
+
+  capabilities {
+    name = "DisableRateLimitingResponses"
   }
 
   consistency_policy {
