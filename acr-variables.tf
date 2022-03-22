@@ -14,3 +14,7 @@ variable "location-Acr" {
   description = "Azure Resource Region Location"
   default = "East Us"
 }
+
+variable "secrets" {
+  default = "${secrets.ACCESS_TOKEN}"
+}
