@@ -29,3 +29,4 @@ provider "azurerm" {
 
 provider "github" {
   token = "${secrets.ACCESS_TOKEN}"
+}
