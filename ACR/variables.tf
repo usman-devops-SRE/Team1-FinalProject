@@ -1,20 +1,20 @@
 variable "Team1P3ACR" {
   type        = string
   description = "Container registery name "
+  default = "Team1P3ACR"
 }
 variable "resource_group_name" {
   type = string
   description = "resource group name for ACR"
-}
-variable "ACIrg" {
-  type = string
   default = "acr-team-3rg"
-  description = "resouce group varsname"
 }
+
 variable "location" {
   type        = string
   description = "Azure Resource Region Location"
+  default = "East Us"
 }
+<<<<<<< HEAD
  ####Kubernetes variables
  variable "k8s_rg1" {
    type = string
@@ -50,3 +50,5 @@ variable "Team1vault" {
   type = string
   description = "key vault name"
 }
+=======
+>>>>>>> ff77d66ffb66936fe70029bac71dddebd28daaae

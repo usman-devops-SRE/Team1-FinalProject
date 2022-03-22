@@ -3,13 +3,13 @@ data "azurerm_client_config" "current" {}
 
 ####### Resource Group for The Azure Registar conatiner & Azure Container Instance
 resource "azurerm_resource_group" "ACI" {
-  name     = var.ACIrg
+  name     = var.resource_group_name
   location = var.location 
 }
 ########### Azure Container Registery 
 resource "azurerm_container_registry" "T1RC" {
   name                = var.Team1P3ACR
-  resource_group_name = var.ACIrg
+  resource_group_name = var.resource_group_name
   location            = var.location
   sku                 = "Premium"
   identity {
@@ -28,7 +28,7 @@ resource "azurerm_container_registry" "T1RC" {
 }
 ####### Container Registry Scope Map to pull from Repo
 resource "azurerm_container_registry_scope_map" "team1map" {
-  name                    = "Docker_pull"
+  name                    = "Docker-pull"
   container_registry_name = azurerm_container_registry.T1RC.name
   resource_group_name     = azurerm_resource_group.ACI.name
   actions = [
