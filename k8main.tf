@@ -20,8 +20,8 @@ resource "azurerm_kubernetes_cluster" "k8cluster_1" {
     node_count     = var.node_count
     vm_size        = var.vm_size
     vnet_subnet_id = module.vnet1.subnet2_id
-    pod_subnet_id  = module.vnet1.subnet2_id #data.azurerm_subnet.subnet-2.id
-
+    #pod_subnet_id  = module.vnet1.subnet2_id #data.azurerm_subnet.subnet-2.id
+    enable_node_public_ip = false
   }
 
   identity {
