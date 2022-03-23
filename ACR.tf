@@ -3,13 +3,13 @@ data "azurerm_client_config" "current" {}
 ####### Resource Group for The Azure Registar conatiner & Azure Container Instance
 resource "azurerm_resource_group" "ACI" {
   name     = var.resource_group_name
-  location = var.location 
+  location = var.acr-location 
 }
 ########### Azure Container Registery 
 resource "azurerm_container_registry" "T1RC" {
   name                = var.Team1P3ACR
   resource_group_name = var.resource_group_name
-  location            = var.location
+  location            = var.acr-location
   sku                 = "Premium"
   identity {
     type = "SystemAssigned"
