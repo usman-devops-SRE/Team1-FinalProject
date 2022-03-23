@@ -27,7 +27,7 @@ resource "azurerm_cosmosdb_account" "db" {
   capabilities {
     name = "MongoDBv3.4"
   }
-*/
+
   capabilities {
     name = "EnableMongo"
   }
