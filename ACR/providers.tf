@@ -4,12 +4,17 @@ terraform {
       source = "hashicorp/azurerm"
       version = "2.99.0"
     }
-    key_vault {
-      purge_soft_delete_on_destroy = true
+  backend "azurerm" {
+      resource_group_name  = "TerraformStorageTeam1-rg"
+      storage_account_name = "terraformstorage001"
+      container_name       = "terraformstorage"
+      key                  = "terraform.tfstate"
+    
     }
-  }
 }
 
 provider "azurerm" {
+  features {}
+  
 }
 
