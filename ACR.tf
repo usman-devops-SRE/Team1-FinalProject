@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "ACI" {
 resource "azurerm_container_registry" "T1RC" {
   name                = var.Team1P3ACR
   resource_group_name = var.resource_group_name
-  location = "west europe"
+  location = "East Us"
   sku                 = "Premium"
   admin_enabled       = true
   georeplications {
