@@ -48,7 +48,7 @@ resource "azurerm_container_registry_task" "JLT1" {
   }
 }
 resource "azurerm_key_vault" "vault" {
-  name                        = "team1KeyVault-project3"
+  name                        = "team1KeyVault-project3test"
   location                    = var.location
   resource_group_name         = "TerraformStorageTeam1-rg"
   enabled_for_disk_encryption = true
