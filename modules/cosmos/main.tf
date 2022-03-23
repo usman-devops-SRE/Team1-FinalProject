@@ -8,14 +8,14 @@ resource "azurerm_cosmosdb_account" "db" {
   enable_free_tier = true
   enable_automatic_failover = true
   public_network_access_enabled = true
-  is_virtual_network_filter_enabled = false
+  #is_virtual_network_filter_enabled = false
   mongo_server_version = "4.0"
 /*
   virtual_network_rule {
       id = "${var.subnet3_id}"
       ignore_missing_vnet_service_endpoint = false
   }
-
+*/
   capabilities {
     name = "EnableAggregationPipeline"
   }
@@ -65,7 +65,7 @@ resource "azurerm_cosmosdb_mongo_collection" "mongo_collection" {
 
   default_ttl_seconds = "777"
   shard_key           = "uniqueKey"
-  throughput          = 400
+  throughput          = 4000
 
   index {
     keys   = ["_id"]
