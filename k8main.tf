@@ -1,9 +1,3 @@
-data "azurerm_subnet" "subnet-2" {
-  name                 = "Tier2-subnet"
-  virtual_network_name = "Vnet"
-  resource_group_name  = "Net_RG"
-}
-
 resource "azurerm_resource_group" "k8s_rg1" {
   name     = var.k8s_rg1
   location = var.eastus
@@ -26,8 +20,8 @@ resource "azurerm_kubernetes_cluster" "k8cluster_1" {
     node_count     = var.node_count
     vm_size        = var.vm_size
     vnet_subnet_id = module.vnet1.subnet2_id
-    pod_subnet_id  = module.vnet1.subnet2_id #data.azurerm_subnet.subnet-2.id
-
+    #pod_subnet_id  = module.vnet1.subnet2_id #data.azurerm_subnet.subnet-2.id
+    enable_node_public_ip = false
   }
 
   identity {
