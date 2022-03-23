@@ -16,7 +16,7 @@ resource "azurerm_container_registry" "T1RC" {
     type = "SystemAssigned"
   }
   georeplications {
-    location                = "eastus"
+    location                = "Central US"
     zone_redundancy_enabled = true
     tags                    = {}
   }
