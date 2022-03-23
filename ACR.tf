@@ -14,7 +14,7 @@ resource "azurerm_container_registry" "T1RC" {
   sku                 = "Premium"
   admin_enabled       = true
   georeplications {
-    location                = "eastus"
+    location                = "Central US"
     zone_redundancy_enabled = true
     tags                    = {}
   }
@@ -50,7 +50,7 @@ resource "azurerm_container_registry_task" "JLT1" {
 resource "azurerm_key_vault" "vault" {
   name                        = "team1KeyVault"
   location                    = var.location
-  resource_group_name         = var.resource_group_name
+  resource_group_name         = "TerraformStorageTeam1-rg"
   enabled_for_disk_encryption = true
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   soft_delete_retention_days  = 7
