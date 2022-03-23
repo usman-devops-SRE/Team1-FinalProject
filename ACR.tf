@@ -43,12 +43,12 @@ resource "azurerm_container_registry_task" "JLT1" {
   docker_step {
     dockerfile_path      = "Dockerfile"
     context_path         = "https://github.com/tylerkain/Team1-FinalProject/tree/finaldocker"
-    context_access_token = "Github"
+    context_access_token = "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"
     image_names          = ["bradmcken/team_1_final_project:latest", "bradmcken/team_1_final_project:apilatest", "bradmcken/team_1_final_project:dblatest"]
   }
 }
 resource "azurerm_key_vault" "vault" {
-  name                        = "team1KeyVaultproject3test"
+  name                        = "team1KeyVault-project3"
   location                    = var.location
   resource_group_name         = "TerraformStorageTeam1-rg"
   enabled_for_disk_encryption = true
