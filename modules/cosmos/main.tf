@@ -10,6 +10,7 @@ resource "azurerm_cosmosdb_account" "db" {
   public_network_access_enabled = true
   #is_virtual_network_filter_enabled = false
   mongo_server_version = "4.0"
+  ip_range_filter = "0.0.0.0/0"
 /*
   virtual_network_rule {
       id = "${var.subnet3_id}"
@@ -37,7 +38,7 @@ resource "azurerm_cosmosdb_account" "db" {
   }
 
   consistency_policy {
-    consistency_level       = "Strong"
+    consistency_level = "Strong"
   }
 
   geo_location {
@@ -52,25 +53,9 @@ resource "azurerm_cosmosdb_account" "db" {
 }
 
 resource "azurerm_cosmosdb_mongo_database" "mongo_db" {
-  name                = "cosmos-mongo-db"
+  name                = "heroratings"
   resource_group_name = azurerm_cosmosdb_account.db.resource_group_name
   account_name        = azurerm_cosmosdb_account.db.name
-}
-
-resource "azurerm_cosmosdb_mongo_collection" "mongo_collection" {
-  name                = "cosmos-mongo-db-collection"
-  resource_group_name = azurerm_cosmosdb_account.db.resource_group_name
-  account_name        = azurerm_cosmosdb_account.db.name
-  database_name       = azurerm_cosmosdb_mongo_database.mongo_db.name
-
-  default_ttl_seconds = "777"
-  shard_key           = "uniqueKey"
-  throughput          = 4000
-
-  index {
-    keys   = ["_id"]
-    unique = true
-  }
 }
 
 output "azurerm_cosmosdb_account_id" {
