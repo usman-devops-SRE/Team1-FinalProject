@@ -43,7 +43,7 @@ resource "azurerm_container_registry_task" "JLT1" {
   docker_step {
     dockerfile_path      = "Dockerfile"
     context_path         = "https://github.com/tylerkain/Team1-FinalProject/tree/finaldocker"
-    context_access_token = "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"
+    context_access_token = "Git"
     image_names          = ["bradmcken/team_1_final_project:latest", "bradmcken/team_1_final_project:apilatest", "bradmcken/team_1_final_project:dblatest"]
   }
 }
