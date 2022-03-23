@@ -48,7 +48,7 @@ resource "azurerm_container_registry_task" "JLT1" {
   }
 }
 resource "azurerm_key_vault" "vault" {
-  name                        = "team1KeyVault
+  name                        = "team1KeyVault"
   location                    = var.location
   resource_group_name         = var.resource_group_name
   enabled_for_disk_encryption = true
