@@ -7,13 +7,13 @@ variable "db_failover_location" {
 }
 
 variable "db_rg_name" {
-    default = "cosmos_db_rg"
+    default = "team1-node-rg"
 }
-
+/*
 variable "subnet3_id" {
     default = ""
 }
-
+*/
 variable "db_account_name" {
-    default = "cosmos-db-team1-project3-1234"
+    default = "cosmosdb-team1-project3-default"
 }
