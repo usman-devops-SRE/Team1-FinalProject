@@ -10,7 +10,7 @@ resource "azurerm_cosmosdb_account" "db" {
   public_network_access_enabled = true
   #is_virtual_network_filter_enabled = false
   mongo_server_version = "4.0"
-  ip_range_filter = "0.0.0.0/0"
+  ip_range_filter = ["0.0.0.0/0"]
 /*
   virtual_network_rule {
       id = "${var.subnet3_id}"
