@@ -11,9 +11,7 @@ resource "azurerm_container_registry" "Team1P3ACR" {
   resource_group_name = var.resource_group_name
   location            = var.acr-location
   sku                 = "Premium"
-  identity {
-    type = "SystemAssigned"
-  }
+  admin_enabled       = true 
   georeplications {
     location                = "Central US"
     zone_redundancy_enabled = true
