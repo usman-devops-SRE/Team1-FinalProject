@@ -13,7 +13,9 @@ resource "azurerm_kubernetes_cluster" "k8cluster_1" {
   node_resource_group = var.nodes_rg
   dns_prefix          = "team1project3"
 
-
+  private_cluster_enabled = true 
+  private_dnszone_id = SystemAssigned
+  public_network_access_enabled = false
 
   default_node_pool {
     name           = var.node_pool_name
@@ -22,7 +24,6 @@ resource "azurerm_kubernetes_cluster" "k8cluster_1" {
     vnet_subnet_id = module.vnet1.subnet2_id
     #pod_subnet_id  = module.vnet1.subnet2_id #data.azurerm_subnet.subnet-2.id
     enable_node_public_ip = false
-    
   }
 
   identity {
