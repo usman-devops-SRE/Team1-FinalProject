@@ -1,0 +1,27 @@
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/finaldocker
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - checkout: self
+    clean: true
+    submodules: recursive
+  - task: Docker@0
+    displayName: Build an image
+    inputs:
+      azureSubscriptionEndpoint: a4e33780-8ade-4d10-b635-665a77cd3c98
+      azureContainerRegistry: '{"loginServer":"team1p3acr.azurecr.io", "id" : "/subscriptions/f6a7723b-56ed-4572-a4b2-0f147ad4fd1b/resourceGroups/acr-team-3rg/providers/Microsoft.ContainerRegistry/registries/Team1P3ACR"}'
+      dockerFile: files/api/dockerfile
+  - task: Docker@0
+    displayName: Push an image
+    inputs:
+      azureSubscriptionEndpoint: a4e33780-8ade-4d10-b635-665a77cd3c98
+      azureContainerRegistry: '{"loginServer":"team1p3acr.azurecr.io", "id" : "/subscriptions/f6a7723b-56ed-4572-a4b2-0f147ad4fd1b/resourceGroups/acr-team-3rg/providers/Microsoft.ContainerRegistry/registries/Team1P3ACR"}'
+      action: Push an image
+...
