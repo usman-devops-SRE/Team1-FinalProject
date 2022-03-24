@@ -12,11 +12,11 @@ resource "azurerm_kubernetes_cluster" "k8cluster_1" {
   resource_group_name = azurerm_resource_group.k8s_rg1.name
   node_resource_group = var.nodes_rg
   dns_prefix          = "team1project3"
-
+/*
   private_cluster_enabled = true 
   private_dns_zone_id = "System"
   public_network_access_enabled = false
-
+*/
   default_node_pool {
     name           = var.node_pool_name
     node_count     = var.node_count
