@@ -14,7 +14,7 @@ resource "azurerm_kubernetes_cluster" "k8cluster_1" {
   dns_prefix          = "team1project3"
 
   private_cluster_enabled = true 
-  private_dns_zone_id = SystemAssigned
+  private_dns_zone_id = "SystemAssigned"
   public_network_access_enabled = false
 
   default_node_pool {
