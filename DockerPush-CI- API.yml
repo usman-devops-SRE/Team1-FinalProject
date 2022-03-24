@@ -22,6 +22,8 @@ jobs:
     displayName: Push an image
     inputs:
       azureSubscriptionEndpoint: a4e33780-8ade-4d10-b635-665a77cd3c98
-      azureContainerRegistry: '{"loginServer":"team1p3acr.azurecr.io", "id" : "/subscriptions/f6a7723b-56ed-4572-a4b2-0f147ad4fd1b/resourceGroups/acr-team-3rg/providers/Microsoft.ContainerRegistry/registries/Team1P3ACR"}'
+      azureContainerRegistry: 
+        loginServer:"team1p3acr.azurecr.io"
+        id : "/subscriptions/f6a7723b-56ed-4572-a4b2-0f147ad4fd1b/resourceGroups/acr-team-3rg/providers/Microsoft.ContainerRegistry/registries/Team1P3ACR"
       action: Push an image
 ...
